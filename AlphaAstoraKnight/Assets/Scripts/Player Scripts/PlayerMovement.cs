@@ -99,7 +99,9 @@ public class PlayerMovement : MonoBehaviour
 
                     playerToPointDistance = OwnMathematics.Distance(new Coordinates(hit.point),new Coordinates(this.transform.position));
 
-                    if(playerToPointDistance >= 1.0f)
+                    //playerToPointDistance = Vector3.Distance(hit.point,this.transform.position);
+
+                    if (playerToPointDistance >= 1.0f)
                     {
                         canMove = true;
                         //targetPosition = sphere.transform.position;
@@ -127,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
 
             playerMove = transform.forward * moveSpeed * Time.deltaTime;
 
-            if (OwnMathematics.Distance(new Coordinates(targetPosition), new Coordinates(transform.position)) <= 0.5f)
+            if (OwnMathematics.Distance(new Coordinates(targetPosition), new Coordinates(transform.position)) <= 0.1f)
             {
                 canMove = false;
             }
