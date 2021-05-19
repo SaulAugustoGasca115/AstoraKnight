@@ -173,4 +173,29 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public bool FinishedMovement
+    {
+        get
+        {
+            return finished_Movement;
+        }
+
+        set
+        {
+            finished_Movement = value;
+        }
+    }
+
+    public Vector3 TargetPosition
+    {
+        get
+        {
+            return targetPosition;
+        }
+        set
+        {
+            targetPosition = value;
+        }
+    }
+
 }
