@@ -17,7 +17,7 @@ public class MouseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Cursor.SetCursor(cursorText,hotSpot,cursorMode);
+        Cursor.SetCursor(cursorText,hotSpot,cursorMode);
         if(Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

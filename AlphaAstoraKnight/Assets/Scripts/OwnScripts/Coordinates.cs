@@ -9,14 +9,14 @@ public class Coordinates
     public float y;
     public float z;
 
-   public Coordinates(int x,int y)
+   public Coordinates(float x,float y)
     {
         this.x = x;
         this.y = y;
         z = -1;
     }
 
-    public Coordinates(int x,int y,int z)
+    public Coordinates(float x,float y,float z)
     {
         this.x = x;
         this.y = y;

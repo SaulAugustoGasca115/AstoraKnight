@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201763050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.35}
+  m_LocalPosition: {x: 0, y: -1.77, z: -0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 23696848344874624}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092612937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: 0.97}
+  m_LocalPosition: {x: 0, y: -0.03, z: 0.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 23696848344874624}
@@ -6219,7 +6219,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.15
+  m_Height: 2.26
   m_Radius: 0.29
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -6239,7 +6239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphere: {fileID: 0}
-  moveSpeed: 5
+  moveSpeed: 7
 --- !u!114 &1148509032268539964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6272,8 +6272,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034ead3b6697b17449251d84240a44d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnFx: []
-  prefabFx: []
+  spawnFx:
+  - {fileID: 1092612937}
+  - {fileID: 671793620}
+  - {fileID: 1578367273}
+  - {fileID: 201763050}
+  prefabFx:
+  - {fileID: 100014, guid: 2f8ef9eb56c6f1d46a58225698863a6f, type: 3}
+  - {fileID: 136674, guid: 8d3a7fbc62f810c43b8c42fdb2978ef4, type: 3}
+  - {fileID: 1498625563617044, guid: 9ad77a006e79044fe86df522ebede5e4, type: 3}
+  - {fileID: 1351438999312512, guid: b1ce49cd6652b40fdb4c9bc83ada15fc, type: 3}
+  - {fileID: 1820702659360474, guid: d3009f51c71e64cceb20222e458aab0f, type: 3}
+  - {fileID: 1164094381172014, guid: d52235af7d56d4f148d6e52c8bc2c348, type: 3}
 --- !u!1 &23696848344834792
 GameObject:
   m_ObjectHideFlags: 0

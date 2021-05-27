@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private CharacterController characterController;
     private CollisionFlags collisionFlags = CollisionFlags.None;
-    private bool canMove;
+    public static bool canMove;
     private bool finished_Movement = true;
     private float playerToPointDistance;
     private Vector3 targetPosition = Vector3.zero;
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject sphere;
     Vector3 direction;
     public float moveSpeed = 5.0f;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,6 +46,14 @@ public class PlayerMovement : MonoBehaviour
         //IsGrounded();
         CalculateHeight();
         CheckIfFinishedMovement();
+
+        //float rotation = Input.GetAxis("Horizontal") * 50.0f;
+
+        //rotation *= Time.deltaTime;
+
+        ////transform.Rotate(0, -rotation, 0);
+
+        //transform.forward = OwnMathematics.OwnRotation(new Coordinates(transform.forward), rotation, true).ConvertToVector();
 
     }
 
@@ -78,14 +87,18 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             MoveThePlayer();
-            //playerMove.y = height * Time.deltaTime;
-            //collisionFlags =  characterController.Move(playerMove);
-            this.transform.position += playerMove;
+            playerMove.y = height * Time.deltaTime;
+            collisionFlags =  characterController.Move(playerMove);
+            //this.transform.position += playerMove;
+            //collisionFlags = playerMove;
         }
     }
 
     void MoveThePlayer()
     {
+
+        
+
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -123,9 +136,17 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 targetTemporal = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, targetPosition.z - transform.position.z);
 
+            //Vector3 targetTemporal = new Vector3(targetPosition.x, targetPosition.y, targetPosition.z);
+
             Quaternion playerRotation = Quaternion.LookRotation(targetTemporal);
 
+            //Quaternion.eu
+
+            //transform.forward = OwnMathematics.OwnRotation(new Coordinates(transform.forward),rotation,true).ConvertToVector();
+
             transform.rotation = Quaternion.Slerp(transform.rotation, playerRotation, 15.0f * Time.deltaTime);
+
+
 
             playerMove = transform.forward * moveSpeed * Time.deltaTime;
 

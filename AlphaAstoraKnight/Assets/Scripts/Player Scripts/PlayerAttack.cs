@@ -113,20 +113,30 @@ public class PlayerAttack : MonoBehaviour
             animator.SetInteger("Atk", 0);
         }
 
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
+
+            float trans = Input.GetAxis("Vertical") * 15.0f;
+
+
+            trans *= Time.deltaTime;
+
             Vector3 targetPosition = Vector3.zero;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit))
             {
                 targetPosition = new Vector3(hit.point.x, hit.point.y, hit.point.z);
             }
 
-            transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(targetPosition -transform.position),15.0f * Time.deltaTime);
+            //PlayerMovement.canMove = true;
+
+            transform.Translate(0, 0, trans);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPosition - transform.position), 15.0f * Time.deltaTime);
 
         }
 
@@ -152,7 +162,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (fadeImages[2] == 1)
         {
-            if (FadeAndWait(fillWaitImage[2], 0.1f))
+            if (FadeAndWait(fillWaitImage[2], 1f))
             {
                 fadeImages[2] = 0;
             }

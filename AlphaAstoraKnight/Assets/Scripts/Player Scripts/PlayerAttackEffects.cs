@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerAttackEffects : MonoBehaviour
 {
     [Header("Attack FX")]
     public List<GameObject> spawnFx;
     public List<GameObject> prefabFx;
+    public List<AudioSource> soundFx;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,16 +20,19 @@ public class PlayerAttackEffects : MonoBehaviour
     void GroundImpact()
     {
         Instantiate(prefabFx[0], spawnFx[0].transform.position, Quaternion.identity);
+        soundFx[0].Play();
     }
 
     void Kick()
     {
         Instantiate(prefabFx[1], spawnFx[1].transform.position, Quaternion.identity);
+        soundFx[1].Play();
     }
 
     void FireTornado()
     {
         Instantiate(prefabFx[2], spawnFx[2].transform.position, Quaternion.identity);
+        soundFx[2].Play();
     }
 
     void FireShield()
@@ -34,6 +40,9 @@ public class PlayerAttackEffects : MonoBehaviour
         GameObject fireObject = Instantiate(prefabFx[3], spawnFx[3].transform.position, Quaternion.identity) as GameObject;
 
         fireObject.transform.SetParent(transform);
+
+        soundFx[3].Play();
+        
     }
 
     void Heal()
@@ -44,6 +53,8 @@ public class PlayerAttackEffects : MonoBehaviour
         GameObject healObject = Instantiate(prefabFx[4], temporalPosition, Quaternion.identity);
 
         healObject.transform.SetParent(transform);
+
+        soundFx[4].Play();
     }
 
     void ThunderAttack()
@@ -86,6 +97,8 @@ public class PlayerAttackEffects : MonoBehaviour
             }
 
             Instantiate(prefabFx[5],thunderPosition,Quaternion.identity);
+
+            soundFx[5].Play();
         }
     }
 }
